@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom manipulation</title>
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: #00DBDE;
+            background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            align-items: center;
+            text-align: center;
+            background-color: #ffff;
+            display: block;
+            border-radius: 15px;
+            width: 400px;
+        }
+
+        .container-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+        }
+
+        .input {
+            margin: 5px auto;
+        }
+
+        .input-field {
+            font-size: 25px;
+            border-radius: 15px;
+            border: solid 1px;
+        }
+
+        .btn {
+            font-size: 25px;
+            margin: 10px auto;
+            padding: 8px;
+            border-radius: 15px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+    <div class="container">
+        <div class="container-heading">
+            <h1>Area of Circle</h1>
+        </div>
+        <div class="container-body">
+
+            <div class="input">
+                <input type="text" class="input-field" id="num1" placeholder="enter radius" />
+            </div>
+
+
+            <div class="answer-section">
+                <p>Answer: <span id="final-answer"></span> </p>
+            </div>
+
+            <div class="calculate-button">
+                <button type="button" class="btn btn-calculate" onclick="calculate()">Calculate</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function calculate() {
+            const n1 = document.getElementById("num1");
+            const area = 3.14 * (parseFloat(n1.value)) ** 2; 
+            const ans = document.getElementById("final-answer");
+            ans.innerText = area;
+        }
+
+    </script>
+</body>
+
+</html>
