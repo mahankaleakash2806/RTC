@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dice Roller</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .dice-container {
+      margin-bottom: 20px;
+    }
+
+    #dice {
+      max-width: 150px;
+    }
+
+    #rollBtn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #rollBtn:hover {
+      background-color: #45a049;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Dice Roller</h1>
+    <div class="dice-container">
+      <img src="dice.png" alt="Dice" id="dice">
+    </div>
+    <button id="rollBtn">Roll Dice</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const diceImg = document.getElementById('dice');
+    const rollBtn = document.getElementById('rollBtn');
+    const resultDiv = document.getElementById('result');
+
+    rollBtn.addEventListener('click', rollDice);
+
+    function rollDice() {
+      const randomNumber = Math.floor(Math.random() * 6) + 1;
+      diceImg.src = `dice-${randomNumber}.png`;
+      resultDiv.textContent = `You rolled a ${randomNumber}!`;
+    }
+  </script>
+</body>
+</html>
