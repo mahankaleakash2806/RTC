@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date Difference Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="date"] {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    #calculateBtn {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    #calculateBtn:hover {
+      background-color: #45a049;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Date Difference Calculator</h1>
+    <div class="input-group">
+      <label for="date1">Date 1:</label>
+      <input type="date" id="date1" required>
+    </div>
+    <div class="input-group">
+      <label for="date2">Date 2:</label>
+      <input type="date" id="date2" required>
+    </div>
+    <button id="calculateBtn">Calculate Difference</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const date1Input = document.getElementById('date1');
+    const date2Input = document.getElementById('date2');
+    const calculateBtn = document.getElementById('calculateBtn');
+    const resultDiv = document.getElementById('result');
+
+    calculateBtn.addEventListener('click', calculateDifference);
+
+    function calculateDifference() {
+      const date1 = new Date(date1Input.value);
+      const date2 = new Date(date2Input.value);
+
+      const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+      const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+      resultDiv.textContent = `The difference between ${date1Input.value} and ${date2Input.value} is ${daysDiff} day(s).`;
+    }
+  </script>
+</body>
+</html>
